@@ -1,11 +1,11 @@
-import * as path from 'path';
+const path = require('path');
 
-import webpack from 'webpack';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import SystemBellPlugin from 'system-bell-webpack-plugin';
-import CleanWebpackPlugin from 'clean-webpack-plugin';
-import merge from 'webpack-merge';
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const SystemBellPlugin = require('system-bell-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const merge = require('webpack-merge');
 
 const pkg = require('./package.json');
 
@@ -23,19 +23,10 @@ const config = {
 
 const common = {
   resolve: {
-    extensions: ['.js', '.css', '.png', '.jpg']
+    extensions: ['.js', '.ts', '.tsx', '.css', '.png', '.jpg']
   },
   module: {
     loaders: [
-      {
-        test: /\.js$/,
-        enforce: 'pre',
-        use: 'eslint-loader',
-        include: [
-          config.paths.docs,
-          config.paths.src
-        ]
-      },
       {
         test: /\.md$/,
         use: ['catalog/lib/loader', 'raw-loader']
@@ -91,17 +82,10 @@ const dev = merge(common, siteCommon, {
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.js$/,
+        test: /\.tsx?$/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            cacheDirectory: true
-          }
+          loader: 'ts-loader'
         },
-        include: [
-          config.paths.docs,
-          config.paths.src
-        ]
       }
     ]
   },

@@ -1,6 +1,6 @@
 /* eslint-disable global-require, import/no-unresolved, react/no-multi-comp */
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import GithubCorner from 'react-github-corner';
 import { Catalog, CodeSpecimen, ReactSpecimen } from 'catalog';
 
