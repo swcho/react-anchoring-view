@@ -141,12 +141,10 @@ const ghPages = merge(common, siteCommon, {
         })
       },
       {
-        test: /\.js$/,
-        use: 'babel-loader',
-        include: [
-          config.paths.docs,
-          config.paths.src
-        ]
+        test: /\.tsx?$/,
+        use: {
+          loader: 'ts-loader'
+        },
       }
     ]
   }
