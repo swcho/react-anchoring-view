@@ -3,6 +3,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import GithubCorner from 'react-github-corner';
 import { Catalog, CodeSpecimen, ReactSpecimen } from 'catalog';
+import {EX01} from './ex_01';
 
 import 'purecss/build/pure.css';
 import './main.css';
@@ -42,6 +43,7 @@ ReactDOM.render(
       }}
       title={title}
     />
+    <EX01/>
   </div>,
   document.getElementById('app')
 );

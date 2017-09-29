@@ -14,9 +14,9 @@
     "gh-pages:deploy": "gh-pages -d gh-pages",
     "gh-pages:stats": "webpack --env ghPages --profile --json > stats.json",
     "dist": "webpack --env dist",
-    "dist:es6": "rimraf ./dist-es6 && tsc --target ES6 --outDir ./dist-es6",
+    "dist:es6": "rimraf ./dist-es6 && tsc -p src --target ES6 --outDir ./dist-es6",
     "dist:min": "webpack --env distMin",
-    "dist:modules": "rimraf ./dist-modules && tsc --target ES5 --outDir ./dist-modules",
+    "dist:modules": "rimraf ./dist-modules && tsc -p src --target ES5 --outDir ./dist-modules",
     "preversion": "npm run test && npm run dist && npm run dist:min && git commit --allow-empty -am \"Update dist\"",
     "prepublish": "npm run dist:es6 && npm run dist:modules",
     "postpublish": "npm run gh-pages && npm run gh-pages:deploy",
@@ -26,6 +26,7 @@
   "module": "dist-es6",
   "jsnext:main": "dist-es6",
   "devDependencies": {
+    "@types/react": "^16.0.7",
     "catalog": "^2.5.3",
     "chai": "^3.5.0",
     "clean-webpack-plugin": "^0.1.16",
@@ -85,6 +86,7 @@
     "test"
   ],
   "dependencies": {
+    "styled-components": "^2.2.0",
     "ts-loader": "^2.3.7",
     "typescript": "^2.5.3"
   }
