@@ -1,5 +1,5 @@
 
-interface Pos {
+export interface Pos {
     x: number;
     y: number;
 }
@@ -12,7 +12,7 @@ export interface MoveHandler {
     (divX: number, divY: number): void;
 }
 
-interface MoveSummary {
+export interface MoveSummary {
     xMoved: boolean;
     yMoved: boolean;
     moveCount: number;

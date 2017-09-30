@@ -4,7 +4,7 @@ import {map} from './linearbuffer';
 import {ViewItems, ViewItem, updateViewItemInfo, reconcile, getNextAnchorableItem, getPrevAnchorableItem, setActive} from './viewitems';
 import {Pointings, MoveStartHandler, MoveHandler, MoveFinishHandler} from './pointings';
 
-interface Pos {
+export interface Pos {
     x: number;
     y: number;
 }
@@ -23,9 +23,9 @@ function flick(value: number, speed: number, cb: (value: number) => void) {
 
 const USE_TOUCH = true;
 
-type ViewOrientation = 'vertical' | 'horizontal';
+export type ViewOrientation = 'vertical' | 'horizontal';
 
-interface Props {
+export interface Props {
     itemLen: number;
     orientation: ViewOrientation;
     anchorPos?: number;
